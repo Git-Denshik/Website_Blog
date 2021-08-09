@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+@mixin  roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+// === VARIABLES ===
+$base: 4px;
+
+$fw-regular: 400;
+$fw-medium: 500;
+
+$fs-sm: 16px;
+$fs-md: 32px;
+$fs-xl: 48px;
+
+$color-black: #000000;
+$color-white: #FFFFFF;
+$color-primary: #727272;
+// === / VARIABLES ===
+
+// === COMMON ===
+body {
+    @include roboto();
+}
+
+.section-outer {
+    padding: 0 $base*5;
+}
+
+.section-inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding-top: $base * 25;
+    padding-bottom: $base * 25;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+// === / COMMON ===
+
+// === HEADER ===
+.section-header {
+    background-color: #EEEFF1;
+}
+// === / HEADER ===
+
+// === FIRST === 
+.section-first {
+    background-color: #EEEFF1;
+}
+// === / FIRST ===
+
+// === ABOUT ===
+.section-about {
+    background-color: $color-white;
+}
+// === / ABOUT ===
+
+// === NUMBERS ===
+.section-numbers {
+    background-color: #34547A;
+}
+// === / NUMBERS ===
+
+// === SKILLS ===
+.section-skills {
+    background-color: $color-white;
+}
+// === / SKILLS ===
+
+// === VIDEO ===
+.section-video {
+    background-color: #EEEFF1;
+}
+// === / VIDEO ===
+
+// === PROJECTS ===
+.section-projects {
+    background-color: $color-white;
+}
+// === / PROJECTS ===
+
+// === CLIENTS ===
+.section-clients {
+    background-color: $color-white;
+}
+// === / CLIENTS ===
+
+// === FORM ===
+.section-form {
+    background-color: #EEEFF1;
+}
+// === / FORM ===
+
+// === FOOTER ===
+.section-footer {
+    background-color: #34547A;
+}
+// === / FOOTER ===

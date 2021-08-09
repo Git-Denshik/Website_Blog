@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.section-outer {
+  padding: 0 20px;
+}
+
+.section-inner {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.section-header {
+  background-color: #EEEFF1;
+}
+
+.section-first {
+  background-color: #EEEFF1;
+}
+
+.section-about {
+  background-color: #FFFFFF;
+}
+
+.section-numbers {
+  background-color: #34547A;
+}
+
+.section-skills {
+  background-color: #FFFFFF;
+}
+
+.section-video {
+  background-color: #EEEFF1;
+}
+
+.section-projects {
+  background-color: #FFFFFF;
+}
+
+.section-clients {
+  background-color: #FFFFFF;
+}
+
+.section-form {
+  background-color: #EEEFF1;
+}
+
+.section-footer {
+  background-color: #34547A;
+}/*# sourceMappingURL=style.css.map */
