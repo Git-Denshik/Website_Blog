@@ -33,8 +33,39 @@ body {
     margin: 0 auto;
     padding-top: $base * 25;
     padding-bottom: $base * 25;
+
+    &--wide {
+        padding-top: $base;
+        padding-bottom: $base;
+    }
 }
 
+.ta-c {
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: $fw-medium;
+}
+
+.btn {
+    display: inline-block;
+    margin: 0;
+    font-size: $fs-sm;
+    padding: $base*6 $base*10;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #34547A;
+    color: white;
+    border: 1px solid;
+
+    &:hover {
+        background-color: darken(#34547A, 10%);
+    }
+}
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -49,19 +80,103 @@ body {
 
 // === HEADER ===
 .section-header {
-    background-color: #EEEFF1;
+    position: relative;
+    background-color: white;
+}
+
+.main-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-wrapper {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &__item {
+        & + & {
+            margin-left: $base * 10;
+        }
+
+        &-link {
+            margin-right: $base * 7;
+            font-size: $fs-sm;
+            font-weight: $fw-regular;
+            text-decoration: none;
+            color: $color-black;
+        }
+    }
+}
+
+.logo {
+    width: $base * 22;
+    height: $base * 7;
+    margin-left: $base * 5;
 }
 // === / HEADER ===
 
 // === FIRST === 
 .section-first {
     background-color: #EEEFF1;
+
+    .section-inner {
+        display: flex;
+        justify-content: center;
+
+        .section-first {
+            &__left {
+                flex-basis: 40%;
+            }
+    
+            &__right {
+                &-title {
+                    margin-left: $base * 32;
+                    font-size: $fs-xl;
+                }
+    
+                &-text {
+                    margin-left: $base * 32;
+                    width: 65%;
+                    margin-top: $base * 15;
+                    margin-bottom: $base * 15;
+                    font-weight: $fw-regular;
+                    color: $color-primary;
+                    font-size: $fs-sm;
+                    line-height: 2;
+                }
+
+                button {
+                    margin-left: $base * 32;
+                }
+            }
+        }
+    }
 }
 // === / FIRST ===
 
 // === ABOUT ===
 .section-about {
     background-color: $color-white;
+
+    .section-inner {
+        h2{
+            font-size: $fs-md;
+            margin-bottom: $base * 10;
+        }
+
+        .text {
+            width: 50%;
+            margin: 0 auto;
+            line-height: 2;
+            text-align: center;
+            color: $color-primary;
+            font-size: $fs-sm;
+            font-weight: $fw-regular;
+        }
+    }
 }
 // === / ABOUT ===
 
