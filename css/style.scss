@@ -38,6 +38,12 @@ body {
         padding-top: $base;
         padding-bottom: $base;
     }
+
+    &-projects {
+        max-width: 100%;
+        padding-top: $base*5;
+        padding-bottom: 0;
+    }
 }
 
 .ta-c {
@@ -80,8 +86,12 @@ h2 {
 
 // === HEADER ===
 .section-header {
-    position: relative;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
     background-color: white;
+    z-index: 1;
 }
 
 .main-navigation {
@@ -184,23 +194,142 @@ h2 {
 .section-numbers {
     background-color: #34547A;
 }
+
+.numbers {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &__item {
+        display: flex;
+        flex-basis: 16%;
+
+        & + & {
+            margin-left: $base * 12;
+        }
+
+        .text {
+            margin-left: $base * 5;
+            font-size: $base * 5;
+            color: $color-white;
+
+            span {
+                font-size: $fs-sm;
+            }
+        }
+    }
+}
 // === / NUMBERS ===
 
 // === SKILLS ===
 .section-skills {
     background-color: $color-white;
 }
+
+.skills-wrapper {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        min-width: 100%;
+    
+        &-left {
+            flex-basis: 50%;
+            margin-left: 0;
+
+            h2 {
+                margin-top: $base * 20;
+                margin-bottom: $base * 12;
+                font-size: $fs-md;
+                font-weight: $fw-medium;
+            }
+
+            .text {
+                position: relative;
+                display: block;
+                width: 70%;
+                padding: $base * 5;
+                margin-bottom: $base * 7;
+                font-weight: $fw-regular;
+                font-size: $fs-sm;
+                color: $color-primary;
+                border-bottom: 3px solid #34547A;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    border-bottom: 3px solid #C4C4C4;
+                    width: calc(100% - 350px);
+                }
+            }
+        }
+
+        &-right {
+            flex-basis: 50%;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
 // === / SKILLS ===
 
 // === VIDEO ===
 .section-video {
     background-color: #EEEFF1;
+
+    .section-inner {
+        h2{
+            font-size: $fs-md;
+            margin-bottom: $base * 10;
+        }
+
+        .text {
+            width: 50%;
+            margin: 0 auto;
+            line-height: 2;
+            text-align: center;
+            color: $color-primary;
+            font-size: $fs-sm;
+            font-weight: $fw-regular;
+            
+        }
+
+        video {
+            margin-top: $base * 14;
+            margin-left: $base * 6;
+            width: 95%;
+        }
+    }
 }
 // === / VIDEO ===
 
 // === PROJECTS ===
 .section-projects {
     background-color: $color-white;
+}
+
+.section-projects-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    .image-link {
+
+       
+
+        img {
+            width: 100%;
+        }
+    }
 }
 // === / PROJECTS ===
 
