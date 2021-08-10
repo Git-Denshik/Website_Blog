@@ -48,6 +48,25 @@ h2 {
 .btn:hover {
   background-color: #253b56;
 }
+.btn-input {
+  padding: 20px 40px;
+}
+
+.input {
+  margin: 20px;
+  padding: 4px 40px 8px;
+  width: 190px;
+  height: 50px;
+  border: none;
+}
+.input-massage {
+  width: 410px;
+  height: 175px;
+  border: none;
+  margin-left: 20px;
+  margin-bottom: 48px;
+  padding: 8px 88px;
+}
 
 .visually-hidden {
   position: absolute;
@@ -252,16 +271,65 @@ h2 {
   grid-column-gap: 0;
   grid-row-gap: 0;
 }
+.section-projects-wrapper .image-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.section-projects-wrapper .image-link::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.section-projects-wrapper .image-link--active::before {
+  background: rgba(56, 85, 129, 0.8);
+}
 .section-projects-wrapper .image-link img {
+  height: 100%;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .section-clients {
   background-color: #FFFFFF;
 }
+.section-clients .section-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .section-form {
   background-color: #EEEFF1;
+}
+.section-form .section-inner h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+.section-form .section-inner .text {
+  width: 52%;
+  margin: 0 auto;
+  margin-bottom: 48px;
+  line-height: 2;
+  text-align: center;
+  color: #727272;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form {
+  width: 55%;
+  margin: 0 auto;
+}
+.form__input-message {
+  display: block;
+}
+.form .btn {
+  margin-left: 35%;
 }
 
 .section-footer {
