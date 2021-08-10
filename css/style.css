@@ -63,7 +63,6 @@ h2 {
   width: 410px;
   height: 175px;
   border: none;
-  margin-left: 20px;
   margin-bottom: 48px;
   padding: 8px 88px;
 }
@@ -321,17 +320,35 @@ h2 {
   font-weight: 400;
 }
 
-.form {
-  width: 55%;
-  margin: 0 auto;
+.form__input {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
 }
-.form__input-message {
-  display: block;
-}
-.form .btn {
-  margin-left: 35%;
+.form__btn {
+  margin-left: 43%;
 }
 
 .section-footer {
   background-color: #34547A;
+}
+.section-footer .section-inner {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.section-footer .section-inner h2 {
+  font-size: 20px;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+.section-footer .section-inner .text {
+  font-weight: 400;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+.section-footer .section-inner svg {
+  margin-left: 20px;
 }/*# sourceMappingURL=style.css.map */

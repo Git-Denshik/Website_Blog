@@ -88,7 +88,6 @@ h2 {
         width: 410px;
         height: 175px;
         border: none;
-        margin-left: $base * 5;
         margin-bottom: $base * 12;
         padding: $base*2 $base*22;
     }
@@ -409,15 +408,14 @@ h2 {
 }
 
 .form {
-   width: 55%;
-    margin: 0 auto;
-
-    &__input-message {
-        display: block;
+    &__input {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-grow: 1;
     }
-
-    .btn {
-        margin-left: 35%;
+    &__btn {
+        margin-left: 43%;
     }
 }
 // === / FORM ===
@@ -425,5 +423,28 @@ h2 {
 // === FOOTER ===
 .section-footer {
     background-color: #34547A;
+
+    .section-inner {
+        display: flex;
+        justify-content: space-between;
+        padding-top: $base * 12;
+        padding-bottom: $base * 12;
+
+        h2 {
+            font-size: $base * 5;
+            color: $color-white;
+            margin-bottom: $base * 5;
+        }
+
+        .text {
+            font-weight: $fw-regular;
+            font-size: $base * 3;
+            color: $color-white;
+        }
+
+        svg {
+            margin-left: $base * 5;
+        }
+    }
 }
 // === / FOOTER ===
