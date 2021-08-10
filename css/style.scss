@@ -4,7 +4,28 @@
     font-family: 'Roboto', sans-serif;
 }
 
+// === Function ===
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function rem($num) {
+    @return (strip-unit($num) / 16) * 1rem;
+}
+// === / Function ===
+
 // === VARIABLES ===
+$breakpoint-sm-min: 576px;
+$breakpoint-xs-max: $breakpoint-sm-min - 1px;
+$breakpoint-md-min: 768px;
+$breakpoint-sm-max: $breakpoint-md-min - 1px;
+$breakpoint-lg-min: 992px;
+$breakpoint-md-max: $breakpoint-lg-min - 1px;
+$breakpoint-xl-min: 1200px;
+$breakpoint-lg-max: $breakpoint-xl-min - 1px;
+$breakpoint-xxl-min: 1400px;
+$breakpoint-xl-max: $breakpoint-xxl-min - 1px;
+
 $base: 4px;
 
 $fw-regular: 400;
@@ -46,6 +67,23 @@ body {
     }
 }
 
+.vertical-indent {
+    &-md {
+        @media (max-width: $breakpoint-md-max) {
+            padding-top: $base * 15;
+            padding-bottom: $base * 15;
+        }
+    }
+
+    &-sm {
+        @media (max-width: $breakpoint-md-max) {
+            padding-top: $base * 10;
+            padding-bottom: $base * 10;
+        }
+        
+    }
+}
+
 .ta-c {
     text-align: center;
 }
@@ -68,12 +106,24 @@ h2 {
     color: white;
     border: 1px solid;
 
-    &:hover {
-        background-color: darken(#34547A, 10%);
+    @media (max-width: $breakpoint-sm-max) {
+        padding: $base*4 $base*5;
+    }
+
+    &-primary {
+        &:hover {
+            background-color: darken(#34547A, 10%);
+        }
     }
 
     &-input {
         padding: $base*5 $base*10;
+    }
+
+    &-no-bg {
+        padding: 0;
+        margin: 0;
+        background-color: rgb(243, 243, 243);
     }
 }
 
@@ -84,12 +134,21 @@ h2 {
     height: 50px;
     border: none;
 
+    @media (max-width: $breakpoint-sm-max) {
+        margin: $base*2 0;
+        width: 100%;
+    }
+
     &-massage {
         width: 410px;
         height: 175px;
         border: none;
         margin-bottom: $base * 12;
         padding: $base*2 $base*22;
+
+        @media (max-width: $breakpoint-sm-max) {
+            width: 100%;
+        }
     }
 }
 
@@ -105,40 +164,112 @@ h2 {
 }
 // === / COMMON ===
 
-// === HEADER ===
-.section-header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    background-color: white;
-    z-index: 1;
-}
-
+// === Navigation ===
 .main-navigation {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+
+    &__inner-wrap {
+        margin-left: auto;
+
+        .section-header & {
+            @media (max-width: $breakpoint-sm-max) {
+                display: none;
+                position: absolute;
+                padding: $base * 5;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: $color-white;
+                z-index: 100;
+            }
+        }
+ 
+        .nav-wrapper {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            @media (max-width: $breakpoint-sm-max) {
+                position: relative;
+                flex-direction: column;
+                left: 110%;
+            }
+        
+            &__item {
+                & + & {
+                    margin-left: $base * 10;
+                }
+
+                @media (max-width: $breakpoint-sm-max) {
+                    padding: $base;
+                }
+        
+                &-link {
+                    margin-right: $base * 7;
+                    font-size: $fs-sm;
+                    font-weight: $fw-regular;
+                    text-decoration: none;
+                    color: $color-black;
+                }
+            }
+        }
+    }
+}
+// === / Navigation ===
+
+// === HEADER ===
+.section-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: white;
+
+    // === Стили для мобильного меню ===
+    &::before {
+        content: '';
+        display: none;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 100%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &--active-nav {
+        &::before {
+            display: block;
+        }
+
+        .main-navigation__inner-wrap {
+            display: flex;
+        }
+    }
+    // === / Стили для мобильного меню ===
 }
 
-.nav-wrapper {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+.btn-burger {
+    display: none;
+    margin-left: auto;
 
-    &__item {
+    &__line {
+        display: block;
+        margin: $base *2 $base * 3;
+        width: $base * 5;
+        height: $base / 2;
+        background-color: rgb(185, 184, 184);
+
         & + & {
-            margin-left: $base * 10;
+            margin-top: $base;
         }
+    }
 
-        &-link {
-            margin-right: $base * 7;
-            font-size: $fs-sm;
-            font-weight: $fw-regular;
-            text-decoration: none;
-            color: $color-black;
-        }
+    @media (max-width: $breakpoint-sm-max) {
+        display: block;
     }
 }
 
@@ -157,15 +288,33 @@ h2 {
         display: flex;
         justify-content: center;
 
+        @media (max-width: $breakpoint-sm-max) {
+            flex-direction: column;
+            padding-bottom: $base * 10;
+        }
+
         .section-first {
             &__left {
                 flex-basis: 40%;
+
+                @media (max-width: $breakpoint-sm-max) {
+                    display: flex;
+                    justify-content: center;
+                   
+                }
             }
     
             &__right {
                 &-title {
                     margin-left: $base * 32;
                     font-size: $fs-xl;
+
+                    @media (max-width: $breakpoint-sm-max) {
+                        font-size: $fs-md;
+                        margin-left: $base;
+                        margin-top: $base * 2; 
+                        text-align: center;        
+                    }
                 }
     
                 &-text {
@@ -177,10 +326,23 @@ h2 {
                     color: $color-primary;
                     font-size: $fs-sm;
                     line-height: 2;
+
+                    @media (max-width: $breakpoint-sm-max) {
+                        width: 100%;
+                        text-align: center;
+                        margin-top: $base * 5; 
+                        margin-bottom: $base * 5;    
+                        margin-left: $base;    
+                    }
                 }
 
                 button {
                     margin-left: $base * 32;
+
+                    @media (max-width: $breakpoint-sm-max) {
+                        margin: 0;    
+                        margin-left: 25%;
+                    }
                 }
             }
         }
@@ -196,6 +358,10 @@ h2 {
         h2{
             font-size: $fs-md;
             margin-bottom: $base * 10;
+
+            @media (max-width: $breakpoint-sm-max) {
+                margin-bottom: $base * 5;         
+            }
         }
 
         .text {
@@ -206,6 +372,10 @@ h2 {
             color: $color-primary;
             font-size: $fs-sm;
             font-weight: $fw-regular;
+
+            @media (max-width: $breakpoint-sm-max) {
+                width: 100%;         
+            }
         }
     }
 }
@@ -222,9 +392,38 @@ h2 {
     margin: 0;
     list-style: none;
 
+    @media (max-width: $breakpoint-md-max) {
+        flex-direction:column-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media (max-width: $breakpoint-sm-max) {
+        flex-direction: row;
+        justify-content: space-between;        
+    }
+
     &__item {
         display: flex;
         flex-basis: 16%;
+
+        @media (max-width: $breakpoint-sm-max) {
+            
+            &-no {
+                display: none;
+            }
+        }
+
+        @media (max-width: $breakpoint-md-max) {
+            svg {
+                padding: 0 0 $base*2 0;
+            }
+        }
+
+        @media (max-width: $breakpoint-lg-max) {
+            flex-wrap: wrap;
+            flex-basis: auto;
+        }
 
         & + & {
             margin-left: $base * 12;
@@ -258,16 +457,34 @@ h2 {
         display: flex;
         justify-content: space-between;
         min-width: 100%;
+
+        @media (max-width: $breakpoint-sm-max) {
+            flex-direction:column-reverse;  
+        }
     
         &-left {
             flex-basis: 50%;
             margin-left: 0;
+
+            @media (max-width: $breakpoint-sm-max) {
+                flex-basis: 100%; 
+            }
 
             h2 {
                 margin-top: $base * 20;
                 margin-bottom: $base * 12;
                 font-size: $fs-md;
                 font-weight: $fw-medium;
+
+                @media (max-width: $breakpoint-sm-max) {
+                    display: flex;
+                    justify-content: center;  
+                }
+
+                @media (max-width: $breakpoint-md-max) {
+                    margin-top: $base;
+                    margin-bottom: $base;
+                }
             }
 
             .text {
@@ -288,6 +505,10 @@ h2 {
                     right: 0;
                     border-bottom: 3px solid #C4C4C4;
                     width: calc(100% - 350px);
+                }
+
+                @media (max-width: $breakpoint-sm-max) {
+                    width: 85%;  
                 }
             }
         }
@@ -310,6 +531,10 @@ h2 {
         h2{
             font-size: $fs-md;
             margin-bottom: $base * 10;
+
+            @media (max-width: $breakpoint-sm-max) {
+                margin-bottom: $base * 5;  
+            }
         }
 
         .text {
@@ -320,6 +545,10 @@ h2 {
             color: $color-primary;
             font-size: $fs-sm;
             font-weight: $fw-regular;
+
+            @media (max-width: $breakpoint-sm-max) {
+                width: 100%;  
+            }
             
         }
 
@@ -327,6 +556,13 @@ h2 {
             margin-top: $base * 14;
             margin-left: $base * 6;
             width: 95%;
+
+            @media (max-width: $breakpoint-sm-max) {
+                margin-top: $base * 7;
+                margin-bottom: $base * 3;
+                margin-left: 0;
+                width: 100%;
+            }
         }
     }
 }
@@ -380,6 +616,32 @@ h2 {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-top: $base * 18;
+        padding-bottom: $base * 18;
+
+        @media (max-width: $breakpoint-sm-max) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between; 
+            padding-top: $base;
+            padding-bottom: $base;
+            
+            img {
+                width: 120px;
+                margin: 0;
+                padding: $base;
+            }
+        }
+
+        @media (max-width: $breakpoint-lg-max) {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: $breakpoint-md-max) {
+            padding-top: $base * 10;
+            padding-bottom: $base * 10;
+        }
     }
 }
 // === / CLIENTS ===
@@ -392,6 +654,10 @@ h2 {
         h2{
             font-size: $fs-md;
             margin-bottom: $base * 10;
+
+            @media (max-width: $breakpoint-sm-max) {
+                margin-bottom: $base * 5;
+            }
         }
 
         .text {
@@ -403,6 +669,11 @@ h2 {
             color: $color-primary;
             font-size: $fs-sm;
             font-weight: $fw-regular;
+
+            @media (max-width: $breakpoint-sm-max) {
+                width: 100%;
+                margin-bottom: $base * 5;
+            }
         }
     }
 }
@@ -416,6 +687,10 @@ h2 {
     }
     &__btn {
         margin-left: 43%;
+
+        @media (max-width: $breakpoint-sm-max) {
+            margin-left: 26%;
+        }
     }
 }
 // === / FORM ===
@@ -429,6 +704,11 @@ h2 {
         justify-content: space-between;
         padding-top: $base * 12;
         padding-bottom: $base * 12;
+
+        @media (max-width: $breakpoint-sm-max) {
+            padding-top: $base * 6;
+            padding-bottom: $base * 6;
+        }
 
         h2 {
             font-size: $base * 5;
