@@ -12,8 +12,9 @@
     <!-- style -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="stylesheet" href="css/script.css">
     <!-- / style -->
-    <script src="./js/scripts.js"></script>
 </head>
 <body>
     <!-- HEADER -->
@@ -68,7 +69,22 @@
                 <div class="section-first__right-text">
                     Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
                 </div>
-                <button class="btn btn-primary">НАПИСАТЬ МНЕ</button>
+                <button id="button" class="btn btn-primary">НАПИСАТЬ МНЕ</button>
+                <div id="modal" class="modal">
+                    <div class="modal-bg"></div>
+                    <biv class="modal-body">
+                        <button id="close" class="close" title="Закрыть">Закрыть</button>
+                        <h3>Написать мне</h3>
+                        <form class="form form-modal">
+                            <div class="form__input">
+                                <input type="text" id="name" class="input" placeholder="Ваше имя">
+                                <input type="email" id="email" class="input" placeholder="Ваш e-mail">                 
+                                <input type="text" id="massage" class="input-massage-modal" placeholder="Сообщение">
+                            </div>
+                            <button id="btn" class="btn btn-modal form__btn">ОТПРАВИТЬ</button>
+                        </form>
+                    </biv>
+                </div>
             </div>
         </div>
     </section>
@@ -210,28 +226,28 @@
     <section class="section-outer section-projects">
         <div class="section-inner section-inner-projects">
             <div class="section-projects-wrapper">
-                <a href="#" class="image-link" aria-label="Projects">
+                <a href="img/projects/1.png" data-fslightbox="slide-1" class="image-link" aria-label="Projects">
                     <img src="img/projects/1.png" alt="">
                 </a>
-                <a href="#" class="image-link image-link--active" aria-label="Projects">
+                <a href="img/projects/2.png" data-fslightbox="slide-1" class="image-link image-link--active" aria-label="Projects">
                     <img src="img/projects/2.png" alt="">
                 </a>
-                <a href="#" class="image-link" aria-label="Projects">
+                <a href="img/projects/1.png" data-fslightbox="slide-1" class="image-link" aria-label="Projects">
                     <img src="img/projects/1.png" alt="">
                 </a>
-                <a href="#" class="image-link" aria-label="Projects">
+                <a href="img/projects/2.png" data-fslightbox="slide-1" class="image-link" aria-label="Projects">
                     <img src="img/projects/2.png" alt="">
                 </a>
-                <a href="#" class="image-link" aria-label="Projects">
+                <a href="img/projects/2.png" data-fslightbox="slide-1" class="image-link" aria-label="Projects">
                     <img src="img/projects/2.png" alt="">
                 </a>
-                <a href="#" class="image-link" aria-label="Projects">
+                <a href="img/projects/1.png" data-fslightbox="slide-1" class="image-link" aria-label="Projects">
                     <img src="img/projects/1.png" alt="">
                 </a>
-                <a href="#" class="image-link" aria-label="Projects">
+                <a href="img/projects/2.png" data-fslightbox="slide-1" class="image-link" aria-label="Projects">
                     <img src="img/projects/2.png" alt="">
                 </a>
-                <a href="#" class="image-link" aria-label="Projects"> 
+                <a href="img/projects/1.png" data-fslightbox="slide-1" class="image-link" aria-label="Projects"> 
                     <img src="img/projects/1.png" alt="">
                 </a>               
             </div>
@@ -317,7 +333,9 @@
     </div>
 </footer>
 <!-- / FOOTER -->
-
 <script src="js/scripts.js"></script>
+<!-- image lightbox -->
+<script src="./js/fslightbox.js"></script>
+<!-- / image lightbox -->
 </body>
 </html>

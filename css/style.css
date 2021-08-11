@@ -40,10 +40,18 @@ body {
   text-align: center;
 }
 
-h2 {
+h2,
+h3 {
   margin: 0;
   padding: 0;
   font-weight: 500;
+}
+
+h3 {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 32px;
+  color: #ffa600;
 }
 
 .btn {
@@ -57,6 +65,7 @@ h2 {
   background-color: #34547A;
   color: white;
   border: 1px solid;
+  border-radius: 4px;
 }
 @media (max-width: 767px) {
   .btn {
@@ -73,6 +82,17 @@ h2 {
   padding: 0;
   margin: 0;
   background-color: #f3f3f3;
+}
+.btn-modal {
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: white;
+  color: #34547A;
+}
+.btn-modal:hover {
+  background-color: #f7e09f;
 }
 
 .input {
@@ -97,6 +117,18 @@ h2 {
 }
 @media (max-width: 767px) {
   .input-massage {
+    width: 100%;
+  }
+}
+.input-massage-modal {
+  margin-bottom: 48px;
+  width: 410px;
+  height: 175px;
+  border: none;
+  padding: 8px 88px;
+}
+@media (max-width: 767px) {
+  .input-massage-modal {
     width: 100%;
   }
 }
@@ -166,7 +198,7 @@ h2 {
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: white;
+  background-color: #eef6fc;
 }
 .section-header::before {
   content: "";
@@ -585,6 +617,18 @@ h2 {
 @media (max-width: 767px) {
   .form__btn {
     margin-left: 26%;
+  }
+}
+
+.form-modal {
+  margin-top: 3%;
+}
+.form-modal #btn {
+  margin-left: 42%;
+}
+@media (max-width: 767px) {
+  .form-modal #btn {
+    margin-left: 30%;
   }
 }
 
