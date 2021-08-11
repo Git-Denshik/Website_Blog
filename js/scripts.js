@@ -18,5 +18,4 @@ close.addEventListener('click', function(event) {
     event.preventDefault()
     modal.style.display = "none"
 })   
-
 // === / Модульное окно ===
